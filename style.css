@@ -1,0 +1,239 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-family: "Poppins", Arial, sans-serif;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-100%, -50%);
+  transition: 0.2s;
+}
+
+.question-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transition: 0.2s;
+}
+.local-gif {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 3rem auto;
+  pointer-events: none;
+}
+.question {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.btn {
+  position: relative;
+  display: inline-block;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  background: linear-gradient(90deg,#ff5aa9 0%,#ff7ab8 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(255,85,150,0.18);
+}
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(255,85,150,0.22);
+  opacity: 0.98;
+}
+
+.yes-btn, .no-btn {
+  position: static;
+}
+
+.result-container {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-100%, -50%);
+  transition: 0.2s;
+}
+.gif-result {
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+.result-container h2 {
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+.muted {
+  color: #888;
+}
+
+.small {
+  font-size: 14px;
+}
+
+/* Heart loader animation */
+.cssload-main {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.cssload-main * {
+  font-size: 62px;
+}
+
+.cssload-heart {
+  animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cssload-heartL, .cssload-heartR, .cssload-square {
+  width: 1em;
+  height: 1em;
+  background-color: #ff54a4;
+  border-radius: 100%;
+  position: absolute;
+  animation-duration: 2.88s;
+  animation-timing-function: cubic-bezier(0.75, 0, 0.5, 1);
+  animation-iteration-count: infinite;
+}
+
+.cssload-heartL {
+  animation-name: cssload-heartL;
+  transform: translate(-28px, -27px);
+}
+
+.cssload-heartR {
+  animation-name: cssload-heartR;
+  transform: translate(28px, -27px);
+}
+
+.cssload-square {
+  animation-name: cssload-square;
+  transform: rotate(-45deg);
+  border-radius: 20%;
+}
+
+.cssload-shadow {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  width: 1em;
+  height: 0.24em;
+  background-color: rgba(255, 84, 164, 0.2);
+  border-radius: 50%;
+  animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  transform: translateX(-50%);
+}
+
+@keyframes cssload-square {
+  50% {
+    border-radius: 50%;
+    transform: scale(0.5) rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes cssload-heart {
+  50% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(720deg);
+  }
+}
+
+@keyframes cssload-heartL {
+  60% {
+    transform: translate(-28px, -27px) scale(0.4);
+  }
+}
+
+@keyframes cssload-heartR {
+  40% {
+    transform: translate(28px, -27px) scale(0.4);
+  }
+}
+
+@keyframes cssload-shadow {
+  50% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .question {
+    font-size: clamp(22px, 5vw, 36px);
+  }
+  
+  .button-container {
+    gap: 16px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  .local-gif, .gif-result {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .question {
+    font-size: clamp(18px, 5vw, 28px);
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    gap: 12px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .local-gif, .gif-result {
+    max-width: 180px;
+  }
+}
