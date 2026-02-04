@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Choisis ton repas, Shana</title>
+  <style>
+    .qcm-wrap { max-width: 800px; margin: 32px auto; text-align: center; padding: 0 20px; }
+    .choices { display:flex; gap:20px; justify-content:center; margin-top:24px; flex-wrap:wrap; }
+    .choice { border-radius:12px; padding:0; cursor:pointer; width:190px; box-shadow:0 6px 18px rgba(0,0,0,0.08); background:white; transition:transform .15s ease, box-shadow .15s ease; border:2px solid transparent; overflow:hidden; }
+    .choice:hover { transform:translateY(-8px); box-shadow:0 10px 26px rgba(0,0,0,0.12); }
+    .choice.selected { border-color:#ff54a4; box-shadow:0 12px 30px rgba(255,84,164,0.2); }
+    .choice img { width:100%; height:150px; object-fit:cover; border-radius:8px 8px 0 0; display:block; }
+    .choice div { margin-top:12px; margin-bottom:12px; font-weight:600; font-size:15px; }
+    .choice input { margin-right:8px; cursor:pointer; }
+    .hidden { display:none; }
+    .btn { margin-top:16px; padding:12px 20px; border-radius:10px; background:#ff54a4; color:#fff; border:none; cursor:pointer; font-size:16px; font-weight:600; }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    #resultText { color:#111827; font-size:1.1rem; }
+    @media (max-width:600px){ .choice{width:150px} .choice img{height:110px} .choices{gap:12px} }
+  </style>
+</head>
+<body>
+  <div class="qcm-wrap">
+    <h1>Merci Shana ❤️</h1>
+    <p class="muted">Qu'est-ce que tu veux manger ? (choisis une option)</p>
+
+    <div class="choices" id="foodChoices">
+      <label class="choice" tabindex="0">
+        <img id="imgSushi" src="../sushi.webp" alt="Italien">
+        <div><input type="radio" name="food" value="Italien"> Italien</div>
+      </label>
+
+      <label class="choice" tabindex="0">
+        <img id="imgItalie" src="../italie.webp" alt="Sushi">
+        <div><input type="radio" name="food" value="Sushi"> Sushi</div>
+      </label>
+
+      <label class="choice" tabindex="0">
+        <img src="../autre.jpg" alt="Autre">
+        <div><input type="radio" name="food" value="Autre"> Autre</div>
+      </label>
+    </div>
+
+    <button id="foodNext" class="btn" disabled>Valider le repas</button>
+
+    <div id="activityBlock" class="hidden" style="margin-top:20px;">
+      <h2>Quelle activité préfères-tu ?</h2>
+      <div class="choices">
+        <label class="choice">
+          <img src="../billet-de-cinéma-8931563.webp" alt="Cinéma">
+          <div><input type="radio" name="activity" value="Cinéma"> Cinéma</div>
+        </label>
+        <label class="choice">
+          <img src="../seance-photo-paris-nuit-couple-cinematographique.webp" alt="Balade à Paris">
+          <div><input type="radio" name="activity" value="Balade à Paris"> Balade à Paris</div>
+        </label>
+        <label class="choice">
+          <img src="../netflix.jpg" alt="Netflix and chill">
+          <div><input type="radio" name="activity" value="Netflix and chill"> Netflix &amp; chill</div>
+        </label>
+      </div>
+      <button id="activityFinish" class="btn" disabled>Valider l'activité</button>
+    </div>
+
+    <p id="resultText" class="hidden" style="margin-top:18px; font-size:1.05rem;"></p>
+
+    <div style="margin-top:14px;"><a href="index.html">Retour</a></div>
+  </div>
+
+  <script src="qcm.js"></script>
+</body>
+</html>
